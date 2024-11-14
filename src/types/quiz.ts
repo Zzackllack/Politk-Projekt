@@ -11,15 +11,14 @@ export interface Quote {
 export interface Choice {
   name: string;
   party: string;
-  imageUrl?: string;
 }
 
 export interface QuizState {
   currentIndex: number;
   score: number;
   answeredQuestions: number[];
-  selectedChoice?: Choice;
   isAnswered: boolean;
+  selectedChoice?: Choice;
 }
 
 export interface QuizResult {
