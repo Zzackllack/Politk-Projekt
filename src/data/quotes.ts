@@ -1,4 +1,4 @@
-import { Quote, Choice } from '../types/quiz';
+import { Quote, Choice } from "../types/quiz";
 
 export const quotes: Quote[] = [
   {
@@ -8,7 +8,7 @@ export const quotes: Quote[] = [
     party: "Democratic",
     year: 1961,
     context: "Inaugural Address",
-    source: "Presidential Library Archives"
+    source: "Presidential Library Archives",
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ export const quotes: Quote[] = [
     party: "Republican",
     year: 1987,
     context: "Speech at Brandenburg Gate",
-    source: "Reagan Presidential Library"
+    source: "Reagan Presidential Library",
   },
   {
     id: 3,
@@ -26,7 +26,7 @@ export const quotes: Quote[] = [
     party: "Democratic",
     year: 1933,
     context: "First Inaugural Address",
-    source: "National Archives"
+    source: "National Archives",
   },
   {
     id: 4,
@@ -35,7 +35,7 @@ export const quotes: Quote[] = [
     party: "Republican",
     year: 1981,
     context: "First Inaugural Address",
-    source: "Reagan Presidential Library"
+    source: "Reagan Presidential Library",
   },
   {
     id: 5,
@@ -44,33 +44,33 @@ export const quotes: Quote[] = [
     party: "Democratic",
     year: 2008,
     context: "Presidential Campaign Slogan",
-    source: "Campaign Archives"
-  }
+    source: "Campaign Archives",
+  },
 ];
 
 export const choices: Choice[] = [
-  { 
+  {
     name: "John F. Kennedy",
-    party: "Democratic"
+    party: "Democratic",
   },
-  { 
+  {
     name: "Ronald Reagan",
-    party: "Republican"
+    party: "Republican",
   },
-  { 
+  {
     name: "Franklin D. Roosevelt",
-    party: "Democratic"
+    party: "Democratic",
   },
-  { 
+  {
     name: "Barack Obama",
-    party: "Democratic"
+    party: "Democratic",
   },
-  { 
+  {
     name: "Donald Trump",
-    party: "Republican"
+    party: "Republican",
   },
-  { 
+  {
     name: "George W. Bush",
-    party: "Republican"
-  }
+    party: "Republican",
+  },
 ];
