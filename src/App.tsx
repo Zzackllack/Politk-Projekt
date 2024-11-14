@@ -1,10 +1,10 @@
-import React from 'react';
-import { choices } from './data/quotes';
-import { useQuiz } from './hooks/useQuiz';
-import QuoteCard from './components/QuoteCard';
-import ScoreBoard from './components/ScoreBoard';
-import GameOver from './components/GameOver';
-import { Sparkles } from 'lucide-react';
+import React from "react";
+import { choices } from "./data/quotes";
+import { useQuiz } from "./hooks/useQuiz";
+import QuoteCard from "./components/QuoteCard";
+import ScoreBoard from "./components/ScoreBoard";
+import GameOver from "./components/GameOver";
+import { Sparkles } from "lucide-react";
 
 export default function App() {
   const {
@@ -14,9 +14,8 @@ export default function App() {
     isGameOver,
     state,
     getResults,
-    resetQuiz
+    resetQuiz,
   } = useQuiz(choices);
-
   const results = isGameOver ? getResults() : null;
 
   return (
@@ -25,14 +24,15 @@ export default function App() {
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 flex items-center justify-center gap-3 mb-4">
             <Sparkles className="w-8 h-8 text-blue-500" />
-            Political Quotes Quiz
+            Politische Zitate Quiz
           </h1>
-          <p className="text-gray-600">Test your knowledge of famous political quotes</p>
+          <p className="text-gray-600">
+            Teste dein Wissen über berühmte politische Zitate
+          </p>
         </div>
-
         <div className="flex flex-col items-center gap-8">
           <ScoreBoard score={state.score} total={choices.length} />
-          
+
           {isGameOver && results ? (
             <GameOver results={results} onPlayAgain={resetQuiz} />
           ) : (
@@ -45,10 +45,10 @@ export default function App() {
               isCorrect={state.selectedChoice?.name === currentQuote.author}
             />
           )}
-          
+
           {!isGameOver && (
             <div className="text-center text-gray-500">
-              Question {state.currentIndex + 1} of {choices.length}
+              Frage {state.currentIndex + 1} von {choices.length}
             </div>
           )}
         </div>
