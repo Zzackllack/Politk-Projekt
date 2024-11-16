@@ -31,8 +31,7 @@ export default function App() {
           </p>
         </div>
         <div className="flex flex-col items-center gap-8">
-          <ScoreBoard score={state.score} total={choices.length} />
-
+          <ScoreBoard score={state.score} />
           {isGameOver && results ? (
             <GameOver results={results} onPlayAgain={resetQuiz} />
           ) : (
