@@ -19,7 +19,7 @@ export default function App() {
   const results = isGameOver ? getResults() : null;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12 px-4 flex flex-col justify-between">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 flex items-center justify-center gap-3 mb-4">
@@ -52,6 +52,16 @@ export default function App() {
           )}
         </div>
       </div>
+      <footer className="text-center text-gray-500 mt-8">
+        Diese Website ist open source. Schaue es dir{" "}
+        <a
+          href="https://github.com/Zzackllack/Politk-Projekt"
+          className="text-blue-500 hover:underline"
+        >
+          hier
+        </a>{" "}
+        an.
+      </footer>
     </div>
   );
 }
