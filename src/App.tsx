@@ -80,14 +80,6 @@ export default function App() {
           >
             Vorschläge, Bugs? <br />
           </a>{" "}
-          Diese Website ist open source. Schaue es dir{" "}
-          <a
-            href="https://github.com/Zzackllack/Politk-Projekt"
-            className="text-blue-500 hover:underline"
-          >
-            hier
-          </a>{" "}
-          an. <br />
           <a href="/agb" className="text-blue-500 hover:underline">
             AGB
           </a>{" "}
@@ -97,7 +89,16 @@ export default function App() {
             className="text-blue-500 hover:underline"
           >
             Datenschutzerklärung
-          </a>
+          </a>{" "}
+          <br />
+          Diese Website ist open source. Schaue es dir{" "}
+          <a
+            href="https://github.com/Zzackllack/Politk-Projekt"
+            className="text-blue-500 hover:underline"
+          >
+            hier
+          </a>{" "}
+          an. <br />
         </footer>
       </div>
     </Router>
