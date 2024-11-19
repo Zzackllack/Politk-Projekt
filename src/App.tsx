@@ -60,7 +60,17 @@ export default function App() {
         >
           hier
         </a>{" "}
-        an.
+        an. <br />
+        <a href="/agb" className="text-blue-500 hover:underline">
+          AGB
+        </a>{" "}
+        |{" "}
+        <a
+          href="/datenschutzerklaerung"
+          className="text-blue-500 hover:underline"
+        >
+          Datenschutzerklärung
+        </a>
       </footer>
     </div>
   );
