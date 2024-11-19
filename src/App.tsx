@@ -6,6 +6,7 @@ import QuoteCard from "./components/QuoteCard";
 import ScoreBoard from "./components/ScoreBoard";
 import GameOver from "./components/GameOver";
 import AGB from "./pages/agb";
+import Datenschutzerklaerung from "./pages/datenschutzerklaerung";
 import { Sparkles } from "lucide-react";
 
 export default function App() {
@@ -65,6 +66,10 @@ export default function App() {
               }
             />
             <Route path="/agb" element={<AGB />} />
+            <Route
+              path="/datenschutzerklaerung"
+              element={<Datenschutzerklaerung />}
+            />
           </Routes>
         </div>
         <footer className="text-center text-gray-500 mt-8">
