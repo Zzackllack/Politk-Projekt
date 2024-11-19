@@ -73,6 +73,13 @@ export default function App() {
           </Routes>
         </div>
         <footer className="text-center text-gray-500 mt-8">
+          <br />
+          <a
+            href="https://github.com/Zzackllack/Politk-Projekt/issues"
+            className="text-blue-500 hover:underline"
+          >
+            Vorschläge, Bugs? <br />
+          </a>{" "}
           Diese Website ist open source. Schaue es dir{" "}
           <a
             href="https://github.com/Zzackllack/Politk-Projekt"
