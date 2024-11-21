@@ -26,7 +26,7 @@ export default function QuoteCard({
       </div>
 
       <blockquote className="text-2xl font-serif text-center mb-6 text-gray-800">
-        "{quote.text}"
+        {quote.text}
       </blockquote>
 
       <div className="flex items-center justify-center gap-6 mb-8 text-sm text-gray-500">
