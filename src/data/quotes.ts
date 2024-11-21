@@ -3,7 +3,7 @@ import { Quote, Choice } from "../types/quiz";
 export const quotes: Quote[] = [
   {
     id: 1,
-    text: "Ask not what your country can do for you – ask what you can do for your country.",
+    text: "„Frage nicht, was dein Land für dich tun kann – frage, was du für dein Land tun kannst.“",
     author: "John F. Kennedy",
     party: "Democratic",
     year: 1961,
@@ -12,7 +12,7 @@ export const quotes: Quote[] = [
   },
   {
     id: 2,
-    text: "Mr. Gorbachev, tear down this wall!",
+    text: "„Herr Gorbatschow, reißen Sie diese Mauer nieder!“",
     author: "Ronald Reagan",
     party: "Republican",
     year: 1987,
@@ -21,7 +21,7 @@ export const quotes: Quote[] = [
   },
   {
     id: 3,
-    text: "The only thing we have to fear is fear itself.",
+    text: "„Das Einzige, was wir zu fürchten haben, ist die Furcht selbst.“",
     author: "Franklin D. Roosevelt",
     party: "Democratic",
     year: 1933,
@@ -30,7 +30,7 @@ export const quotes: Quote[] = [
   },
   {
     id: 4,
-    text: "Government is not the solution to our problem, government is the problem.",
+    text: "„Die Regierung ist nicht die Lösung unseres Problems, die Regierung ist das Problem.“",
     author: "Ronald Reagan",
     party: "Republican",
     year: 1981,
@@ -39,7 +39,7 @@ export const quotes: Quote[] = [
   },
   {
     id: 5,
-    text: "Yes we can!",
+    text: "„Ja, wir können!“",
     author: "Barack Obama",
     party: "Democratic",
     year: 2008,
