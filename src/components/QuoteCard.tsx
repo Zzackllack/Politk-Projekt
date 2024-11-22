@@ -20,16 +20,16 @@ export default function QuoteCard({
   isCorrect,
 }: QuoteCardProps) {
   return (
-    <div className="w-full max-w-2xl bg-white rounded-xl shadow-lg p-8">
+    <div className="w-full max-w-2xl bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
       <div className="flex items-center justify-center mb-6">
         <QuoteIcon className="w-8 h-8 text-blue-500" />
       </div>
 
-      <blockquote className="text-2xl font-serif text-center mb-6 text-gray-800">
+      <blockquote className="text-2xl font-serif text-center mb-6 text-gray-800 dark:text-gray-100">
         {quote.text}
       </blockquote>
 
-      <div className="flex items-center justify-center gap-6 mb-8 text-sm text-gray-500">
+      <div className="flex items-center justify-center gap-6 mb-8 text-sm text-gray-500 dark:text-gray-400">
         <div className="flex items-center gap-2">
           <Calendar className="w-4 h-4" />
           {quote.year}
@@ -53,15 +53,19 @@ export default function QuoteCard({
               ${
                 disabled && selectedChoice?.name === choice.name
                   ? isCorrect
-                    ? "bg-green-100 border-2 border-green-500"
-                    : "bg-red-100 border-2 border-red-500"
-                  : "bg-gray-50 hover:bg-gray-100 border-2 border-gray-200"
+                    ? "bg-green-100 dark:bg-green-900 border-2 border-green-500"
+                    : "bg-red-100 dark:bg-red-900 border-2 border-red-500"
+                  : "bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 border-2 border-gray-200 dark:border-gray-600"
               }
               ${disabled ? "cursor-default" : "hover:scale-102 hover:shadow-md"}
             `}
           >
-            <div className="font-medium text-gray-800">{choice.name}</div>
-            <div className="text-sm text-gray-500">{choice.party} Partei</div>
+            <div className="font-medium text-gray-800 dark:text-gray-100">
+              {choice.name}
+            </div>
+            <div className="text-sm text-gray-500 dark:text-gray-400">
+              {choice.party} Partei
+            </div>
           </button>
         ))}
       </div>
