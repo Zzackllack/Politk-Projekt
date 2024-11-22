@@ -3,8 +3,9 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Minecraft';
-  src: url('https://cdn.jsdelivr.net/gh/South-Paw/typeface-minecraft@master/font/minecraft.woff2') format('woff2');
+  font-family: "Minecraft";
+  src: url("https://cdn.jsdelivr.net/gh/South-Paw/typeface-minecraft@master/font/minecraft.woff2")
+    format("woff2");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -12,7 +13,7 @@
 
 @layer base {
   body {
-    @apply antialiased text-gray-900;
+    @apply antialiased text-gray-900 dark:text-gray-100 bg-white dark:bg-gray-900;
   }
 }
 
@@ -23,7 +24,7 @@
 }
 
 .font-minecraft {
-  font-family: 'Minecraft', monospace;
+  font-family: "Minecraft", monospace;
   -webkit-font-smoothing: none;
   -moz-osx-font-smoothing: none;
 }
