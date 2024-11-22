@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { choices } from "./data/quotes";
 import { useQuiz } from "./hooks/useQuiz";
@@ -7,9 +7,23 @@ import ScoreBoard from "./components/ScoreBoard";
 import GameOver from "./components/GameOver";
 import AGB from "./pages/agb";
 import Datenschutzerklaerung from "./pages/datenschutzerklaerung";
-import { Sparkles } from "lucide-react";
+import { Sparkles, Sun, Moon } from "lucide-react";
 
 export default function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+
   const {
     currentQuote,
     shuffledChoices,
@@ -23,19 +37,31 @@ export default function App() {
 
   return (
     <Router>
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12 px-4 flex flex-col justify-between">
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-900 py-12 px-4 flex flex-col justify-between">
         <div className="max-w-6xl mx-auto">
+          <div className="flex justify-end mb-4">
+            <button
+              onClick={toggleDarkMode}
+              className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
+            >
+              {darkMode ? (
+                <Sun className="w-6 h-6" />
+              ) : (
+                <Moon className="w-6 h-6" />
+              )}
+            </button>
+          </div>
           <Routes>
             <Route
               path="/"
               element={
                 <>
                   <div className="text-center mb-12">
-                    <h1 className="text-4xl font-bold text-gray-900 flex items-center justify-center gap-3 mb-4">
+                    <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 flex items-center justify-center gap-3 mb-4">
                       <Sparkles className="w-8 h-8 text-blue-500" />
                       Politische Zitate Quiz
                     </h1>
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 dark:text-gray-400">
                       Teste dein Wissen über berühmte politische Zitate
                     </p>
                   </div>
@@ -57,7 +83,7 @@ export default function App() {
                     )}
 
                     {!isGameOver && (
-                      <div className="text-center text-gray-500">
+                      <div className="text-center text-gray-500 dark:text-gray-400">
                         Frage {state.currentIndex + 1} von {choices.length}
                       </div>
                     )}
@@ -72,21 +98,24 @@ export default function App() {
             />
           </Routes>
         </div>
-        <footer className="text-center text-gray-500 mt-8">
-          <br />
+        <footer className="text-center text-gray-500 dark:text-gray-400 mt-8">
           <a
             href="https://github.com/Zzackllack/Politk-Projekt/issues"
-            className="text-blue-500 hover:underline"
+            className="text-blue-500 dark:text-blue-400 hover:underline"
           >
-            Vorschläge, Bugs? <br />
+            Vorschläge, Bugs?
           </a>{" "}
-          <a href="/agb" className="text-blue-500 hover:underline">
+          <br />
+          <a
+            href="/agb"
+            className="text-blue-500 dark:text-blue-400 hover:underline"
+          >
             AGB
           </a>{" "}
           |{" "}
           <a
             href="/datenschutzerklaerung"
-            className="text-blue-500 hover:underline"
+            className="text-blue-500 dark:text-blue-400 hover:underline"
           >
             Datenschutzerklärung
           </a>{" "}
@@ -94,7 +123,7 @@ export default function App() {
           Diese Website ist open source. Schaue es dir{" "}
           <a
             href="https://github.com/Zzackllack/Politk-Projekt"
-            className="text-blue-500 hover:underline"
+            className="text-blue-500 dark:text-blue-400 hover:underline"
           >
             hier
           </a>{" "}
