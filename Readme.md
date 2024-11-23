@@ -15,7 +15,7 @@ Test your knowledge of famous political quotes with this interactive quiz.
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/your-username/political-quotes-quiz.git
+   git clone https://github.com/Zzackllack/Politk-Projekt.git
    cd political-quotes-quiz
    ```
 
