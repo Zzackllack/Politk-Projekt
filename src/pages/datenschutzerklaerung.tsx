@@ -34,10 +34,10 @@ const Datenschutzerklaerung = () => {
         <br />
         E-Mail:{" "}
         <a
-          href="mailto:test@example.com"
+          href="mailto:abuse@zacklack.de"
           className="text-blue-500 hover:underline"
         >
-          test@example.com
+          abuse@zacklack.de
         </a>
       </p>
       <h2 className="text-2xl font-semibold mb-2">
