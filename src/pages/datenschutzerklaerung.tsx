@@ -25,10 +25,11 @@ const Datenschutzerklaerung = () => {
         der Datenschutz-Grundverordnung (DSGVO) ist:
       </p>
       <p className="mb-4">
-        Max Mustermann
+        Goethe-Gymnasium Lichterfelde
         <br />
-        Musterstraße 1<br />
-        12345 Musterstadt
+        Drakestr. 72-74
+        <br />
+        12205 Berlin
         <br />
         Deutschland
         <br />
