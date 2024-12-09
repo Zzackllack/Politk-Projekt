@@ -140,7 +140,7 @@ const Datenschutzerklaerung = () => {
         Bei Fragen zu dieser Datenschutzerklärung kontaktieren Sie uns bitte
         unter{" "}
         <a
-          href="mailto:test@example.com"
+          href="mailto:abuse@zacklack.de"
           className="text-blue-500 hover:underline"
         >
           test@example.com
