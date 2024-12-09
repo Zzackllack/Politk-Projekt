@@ -143,7 +143,7 @@ const Datenschutzerklaerung = () => {
           href="mailto:abuse@zacklack.de"
           className="text-blue-500 hover:underline"
         >
-          test@example.com
+          abuse@zacklack.de
         </a>
         .
       </p>
