@@ -1,26 +1,30 @@
-import { useState, useEffect } from 'react';
-import { LeaderboardEntry } from '../types/quiz';
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { LeaderboardEntry } from "../types/quiz";
 
-const STORAGE_KEY = 'quiz-leaderboard';
-const MAX_ENTRIES = 10;
+const API_URL = "http://localhost:3001/api/leaderboard";
 
 export function useLeaderboard() {
-  const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>(() => {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    return stored ? JSON.parse(stored) : [];
-  });
+  const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);
 
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(leaderboard));
-  }, [leaderboard]);
+    axios
+      .get(API_URL)
+      .then((response) => setLeaderboard(response.data))
+      .catch((error) => console.error("Error fetching leaderboard:", error));
+  }, []);
 
   const addEntry = (entry: LeaderboardEntry) => {
-    setLeaderboard(prev => {
-      const newLeaderboard = [...prev, entry]
-        .sort((a, b) => b.score - a.score)
-        .slice(0, MAX_ENTRIES);
-      return newLeaderboard;
-    });
+    axios
+      .post(API_URL, entry)
+      .then((response) => {
+        setLeaderboard((prev) =>
+          [...prev, entry].sort((a, b) => b.score - a.score)
+        );
+      })
+      .catch((error) =>
+        console.error("Error adding leaderboard entry:", error)
+      );
   };
 
   return { leaderboard, addEntry };
