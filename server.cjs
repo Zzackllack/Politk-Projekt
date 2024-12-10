@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 require("dotenv").config();
 
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3001; // Use port 3001 for the API server
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -19,6 +19,7 @@ const db = mysql.createConnection({
   user: process.env.DB_USER,
   password: dbPassword,
   database: process.env.DB_NAME,
+  port: 3306, // Ensure the correct port is used
 });
 
 // Connect to the database
