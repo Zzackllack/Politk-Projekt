@@ -10,6 +10,7 @@ export function useQuiz(availableChoices: Choice[]) {
     score: 0,
     answeredQuestions: [],
     isAnswered: false,
+    selectedChoice: undefined,
   });
 
   // Randomize quotes order for each quiz session
@@ -34,7 +35,12 @@ export function useQuiz(availableChoices: Choice[]) {
       { name: currentQuote.author, party: currentQuote.party },
     ];
 
-    return choices.sort(() => Math.random() - 0.5);
+    // Remove duplicates
+    const uniqueChoices = Array.from(new Set(choices.map((c) => c.name))).map(
+      (name) => choices.find((c) => c.name === name)!
+    );
+
+    return uniqueChoices.sort(() => Math.random() - 0.5);
   }, [state.currentIndex, availableChoices, randomizedQuotes, currentQuote]);
 
   const handleAnswer = useCallback(
@@ -92,6 +98,7 @@ export function useQuiz(availableChoices: Choice[]) {
       score: 0,
       answeredQuestions: [],
       isAnswered: false,
+      selectedChoice: undefined,
     });
   }, []);
 
