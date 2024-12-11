@@ -85,7 +85,7 @@ export default function App() {
 
                     {!isGameOver && (
                       <div className="text-center text-gray-500 dark:text-gray-400">
-                        Frage {state.currentIndex + 1} von {choices.length}
+                        Frage {state.currentIndex + 1} von 17
                       </div>
                     )}
                     <button
