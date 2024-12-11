@@ -44,7 +44,7 @@ export default function GameOver({ results, onPlayAgain }: GameOverProps) {
   };
 
   return (
-    <div className="bg-white p-8 rounded-xl shadow-lg w-full max-w-2xl">
+    <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg w-full max-w-2xl">
       <div className="text-center mb-8">
         <h2 className="font-minecraft text-4xl mb-2 text-red-600">
           Spiel Vorbei!
@@ -60,7 +60,7 @@ export default function GameOver({ results, onPlayAgain }: GameOverProps) {
             placeholder="Gib deinen Namen ein"
             value={playerName}
             onChange={(e) => setPlayerName(e.target.value)}
-            className="w-full p-2 border-2 border-gray-300 rounded-lg mb-2"
+            className="w-full p-2 border-2 border-gray-300 dark:border-gray-600 rounded-lg mb-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
             maxLength={50}
             required
           />
@@ -101,19 +101,21 @@ export default function GameOver({ results, onPlayAgain }: GameOverProps) {
           <Trophy className="w-6 h-6 text-yellow-500" />
           Bestenliste
         </h3>
-        <div className="bg-gray-50 rounded-lg p-4">
+        <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
           {leaderboard.length > 0 ? (
             <div className="space-y-2">
               {leaderboard.map((entry, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-between p-2 bg-white rounded-lg shadow-sm"
+                  className="flex items-center justify-between p-2 bg-white dark:bg-gray-800 rounded-lg shadow-sm"
                 >
                   <div className="flex items-center gap-3">
-                    <span className="font-minecraft text-lg text-gray-500">
+                    <span className="font-minecraft text-lg text-gray-500 dark:text-gray-400">
                       #{index + 1}
                     </span>
-                    <span className="font-semibold">{entry.name}</span>
+                    <span className="font-semibold text-gray-900 dark:text-gray-100">
+                      {entry.name}
+                    </span>
                   </div>
                   <span className="font-minecraft text-yellow-500">
                     {entry.score} Punkte
@@ -122,7 +124,9 @@ export default function GameOver({ results, onPlayAgain }: GameOverProps) {
               ))}
             </div>
           ) : (
-            <p className="text-center text-gray-500">Noch keine Punkte</p>
+            <p className="text-center text-gray-500 dark:text-gray-400">
+              Noch keine Punkte
+            </p>
           )}
         </div>
       </div>
