@@ -61,7 +61,7 @@ export default function GameOver({ results, onPlayAgain }: GameOverProps) {
             value={playerName}
             onChange={(e) => setPlayerName(e.target.value)}
             className="w-full p-2 border-2 border-gray-300 rounded-lg mb-2"
-            maxLength={20}
+            maxLength={50}
             required
           />
           <button
