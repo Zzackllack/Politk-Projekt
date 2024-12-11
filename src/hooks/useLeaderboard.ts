@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { LeaderboardEntry } from "../types/quiz";
 
-const API_URL = "http://localhost:3001/api/leaderboard";
+const API_URL = "https://politk-projekt-backend.onrender.com/api/leaderboard";
 
 export function useLeaderboard() {
   const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);
