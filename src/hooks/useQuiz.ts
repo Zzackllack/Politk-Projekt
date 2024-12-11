@@ -27,14 +27,20 @@ export function useQuiz(availableChoices: Choice[]) {
           .slice(0, state.currentIndex)
           .some((q) => q.author === choice.name)
     );
-    return [...unusedChoices].sort(() => Math.random() - 0.5).slice(0, 4);
-  }, [state.currentIndex, availableChoices, randomizedQuotes]);
+
+    // Ensure the correct answer is included in the choices
+    const choices = [
+      ...unusedChoices.sort(() => Math.random() - 0.5).slice(0, 3),
+      { name: currentQuote.author, party: currentQuote.party },
+    ];
+
+    return choices.sort(() => Math.random() - 0.5);
+  }, [state.currentIndex, availableChoices, randomizedQuotes, currentQuote]);
 
   const handleAnswer = useCallback(
     (choice: Choice) => {
       const isCorrect = choice.name === currentQuote.author;
       const points = isCorrect ? calculatePoints(state.currentIndex) : 0;
-
       setState((prev) => ({
         ...prev,
         selectedChoice: choice,
