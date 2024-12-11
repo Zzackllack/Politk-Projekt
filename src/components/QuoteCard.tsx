@@ -9,6 +9,7 @@ interface QuoteCardProps {
   disabled: boolean;
   selectedChoice?: Choice;
   isCorrect?: boolean;
+  hardMode: boolean;
 }
 
 export default function QuoteCard({
@@ -18,6 +19,7 @@ export default function QuoteCard({
   disabled,
   selectedChoice,
   isCorrect,
+  hardMode,
 }: QuoteCardProps) {
   return (
     <div className="w-full max-w-2xl bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
@@ -29,18 +31,20 @@ export default function QuoteCard({
         {quote.text}
       </blockquote>
 
-      <div className="flex items-center justify-center gap-6 mb-8 text-sm text-gray-500 dark:text-gray-400">
-        <div className="flex items-center gap-2">
-          <Calendar className="w-4 h-4" />
-          {quote.year}
-        </div>
-        {quote.context && (
+      {!hardMode && (
+        <div className="flex items-center justify-center gap-6 mb-8 text-sm text-gray-500 dark:text-gray-400">
           <div className="flex items-center gap-2">
-            <BookOpen className="w-4 h-4" />
-            {quote.context}
+            <Calendar className="w-4 h-4" />
+            {quote.year}
           </div>
-        )}
-      </div>
+          {quote.context && (
+            <div className="flex items-center gap-2">
+              <BookOpen className="w-4 h-4" />
+              {quote.context}
+            </div>
+          )}
+        </div>
+      )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {choices.map((choice) => (

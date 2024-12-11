@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import { choices } from "./data/quotes";
 import { useQuiz } from "./hooks/useQuiz";
 import QuoteCard from "./components/QuoteCard";
@@ -11,6 +11,7 @@ import { Sparkles, Sun, Moon } from "lucide-react";
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(false);
+  const [hardMode, setHardMode] = useState(false);
 
   useEffect(() => {
     if (darkMode) {
@@ -22,6 +23,10 @@ export default function App() {
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
+  };
+
+  const toggleHardMode = () => {
+    setHardMode(!hardMode);
   };
 
   const {
@@ -40,7 +45,13 @@ export default function App() {
     <Router>
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-900 py-12 px-4 flex flex-col justify-between">
         <div className="max-w-6xl mx-auto">
-          <div className="flex justify-end mb-4">
+          <div className="flex justify-between items-center mb-4">
+            <button
+              onClick={toggleHardMode}
+              className="p-2 rounded-full bg-red-500 text-white hover:bg-red-600 transition-colors"
+            >
+              {hardMode ? "Normal Mode" : "Hard Mode"}
+            </button>
             <button
               onClick={toggleDarkMode}
               className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
@@ -80,12 +91,13 @@ export default function App() {
                         isCorrect={
                           state.selectedChoice?.name === currentQuote.author
                         }
+                        hardMode={hardMode}
                       />
                     )}
 
                     {!isGameOver && (
                       <div className="text-center text-gray-500 dark:text-gray-400">
-                        Frage {state.currentIndex + 1} von 17
+                        Frage {state.currentIndex + 1} von {choices.length}
                       </div>
                     )}
                     <button
@@ -113,19 +125,19 @@ export default function App() {
             Vorschläge, Bugs?
           </a>{" "}
           <br />
-          <a
-            href="/agb"
+          <Link
+            to="/agb"
             className="text-blue-500 dark:text-blue-400 hover:underline"
           >
             AGB
-          </a>{" "}
+          </Link>{" "}
           |{" "}
-          <a
-            href="/datenschutzerklaerung"
+          <Link
+            to="/datenschutzerklaerung"
             className="text-blue-500 dark:text-blue-400 hover:underline"
           >
             Datenschutzerklärung
-          </a>{" "}
+          </Link>{" "}
           <br />
           Diese Website ist open source. Schaue es dir{" "}
           <a
