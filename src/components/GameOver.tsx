@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {
   Trophy,
-  Share2,
   Twitter,
   Facebook,
   Linkedin,
@@ -98,7 +97,7 @@ export default function GameOver({ results, onPlayAgain }: GameOverProps) {
           </button>
         </form>
       ) : (
-        <div className="flex justify-center gap-4 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
           <button
             onClick={() => handleShare("twitter")}
             className="flex items-center gap-2 px-4 py-2 bg-blue-400 text-white rounded-lg hover:bg-blue-500 transition-colors"
