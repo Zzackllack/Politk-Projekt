@@ -48,13 +48,13 @@ export default function App() {
           <div className="flex justify-between items-center mb-4">
             <button
               onClick={toggleHardMode}
-              className="p-2 rounded-full bg-red-500 text-white hover:bg-red-600 transition-colors"
+              className="p-2 rounded-full bg-white bg-opacity-20 backdrop-blur-md border border-white border-opacity-30 text-black dark:text-white hover:bg-opacity-30 transition-colors shadow-md hover:shadow-lg"
             >
               {hardMode ? "Normal Mode" : "Hard Mode"}
             </button>
             <button
               onClick={toggleDarkMode}
-              className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
+              className="p-2 rounded-full bg-white bg-opacity-20 backdrop-blur-md border border-white border-opacity-30 text-black dark:text-white hover:bg-opacity-30 transition-colors shadow-md hover:shadow-lg"
             >
               {darkMode ? (
                 <Sun className="w-6 h-6" />
@@ -74,7 +74,7 @@ export default function App() {
                       Politische Zitate Quiz
                     </h1>
                     <p className="text-gray-600 dark:text-gray-400">
-                      Teste dein Wissen über berühmte politische Zitate
+                      Teste dein Wissen über politische Zitate
                     </p>
                   </div>
                   <div className="flex flex-col items-center gap-8">
@@ -102,7 +102,7 @@ export default function App() {
                     )}
                     <button
                       onClick={skipToGameOver}
-                      className="mt-4 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
+                      className="mt-4 px-4 py-2 bg-white bg-opacity-20 backdrop-blur-md border border-white border-opacity-30 text-black dark:text-white hover:bg-opacity-30 transition-colors rounded-lg shadow-md hover:shadow-lg"
                     >
                       Fragen überspringen und zur Rangliste springen
                     </button>
