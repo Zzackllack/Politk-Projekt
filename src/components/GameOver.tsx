@@ -1,5 +1,14 @@
 import React, { useState } from "react";
-import { Trophy, Share2, Twitter, Facebook, Linkedin } from "lucide-react";
+import {
+  Trophy,
+  Share2,
+  Twitter,
+  Facebook,
+  Linkedin,
+  MessageSquareShare,
+  Mail,
+  Send,
+} from "lucide-react";
 import { QuizResult, LeaderboardEntry } from "../types/quiz";
 import { useLeaderboard } from "../hooks/useLeaderboard";
 
@@ -28,7 +37,15 @@ export default function GameOver({ results, onPlayAgain }: GameOverProps) {
   const shareText = `Ich habe ${results.score} Punkte im Politische Zitate Quiz erzielt! Kannst du meinen Score schlagen?`;
   const shareUrl = window.location.href;
 
-  const handleShare = (platform: "twitter" | "facebook" | "linkedin") => {
+  const handleShare = (
+    platform:
+      | "twitter"
+      | "facebook"
+      | "linkedin"
+      | "whatsapp"
+      | "telegram"
+      | "email"
+  ) => {
     const urls = {
       twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(
         shareText
@@ -39,6 +56,15 @@ export default function GameOver({ results, onPlayAgain }: GameOverProps) {
       linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
         shareUrl
       )}&summary=${encodeURIComponent(shareText)}`,
+      whatsapp: `https://api.whatsapp.com/send?text=${encodeURIComponent(
+        shareText + " " + shareUrl
+      )}`,
+      telegram: `https://t.me/share/url?url=${encodeURIComponent(
+        shareUrl
+      )}&text=${encodeURIComponent(shareText)}`,
+      email: `mailto:?subject=${encodeURIComponent(
+        "Mein Score im Politische Zitate Quiz"
+      )}&body=${encodeURIComponent(shareText + " " + shareUrl)}`,
     };
     window.open(urls[platform], "_blank", "width=600,height=400");
   };
@@ -93,6 +119,27 @@ export default function GameOver({ results, onPlayAgain }: GameOverProps) {
           >
             <Linkedin className="w-5 h-5" />
             Auf LinkedIn Teilen
+          </button>
+          <button
+            onClick={() => handleShare("whatsapp")}
+            className="flex items-center gap-2 px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors"
+          >
+            <MessageSquareShare className="w-5 h-5" />
+            Auf WhatsApp Teilen
+          </button>
+          <button
+            onClick={() => handleShare("telegram")}
+            className="flex items-center gap-2 px-4 py-2 bg-blue-400 text-white rounded-lg hover:bg-blue-500 transition-colors"
+          >
+            <Send className="w-5 h-5" />
+            Auf Telegram Teilen
+          </button>
+          <button
+            onClick={() => handleShare("email")}
+            className="flex items-center gap-2 px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors"
+          >
+            <Mail className="w-5 h-5" />
+            Per Email Teilen
           </button>
         </div>
       )}
