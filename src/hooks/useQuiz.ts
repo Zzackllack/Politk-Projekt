@@ -102,6 +102,14 @@ export function useQuiz(availableChoices: Choice[]) {
     });
   }, []);
 
+  const skipToGameOver = useCallback(() => {
+    setState((prev) => ({
+      ...prev,
+      currentIndex: randomizedQuotes.length - 1,
+      isAnswered: true,
+    }));
+  }, [randomizedQuotes.length]);
+
   const isGameOver =
     state.currentIndex === randomizedQuotes.length - 1 && state.isAnswered;
 
@@ -113,5 +121,6 @@ export function useQuiz(availableChoices: Choice[]) {
     state,
     getResults,
     resetQuiz,
+    skipToGameOver,
   };
 }

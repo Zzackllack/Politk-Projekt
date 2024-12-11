@@ -32,6 +32,7 @@ export default function App() {
     state,
     getResults,
     resetQuiz,
+    skipToGameOver,
   } = useQuiz(choices);
   const results = isGameOver ? getResults() : null;
 
@@ -84,9 +85,15 @@ export default function App() {
 
                     {!isGameOver && (
                       <div className="text-center text-gray-500 dark:text-gray-400">
-                        Frage {state.currentIndex + 1} von 17
+                        Frage {state.currentIndex + 1} von {choices.length}
                       </div>
                     )}
+                    <button
+                      onClick={skipToGameOver}
+                      className="mt-4 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
+                    >
+                      Skip to Scoreboard
+                    </button>
                   </div>
                 </>
               }
