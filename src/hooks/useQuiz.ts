@@ -48,6 +48,15 @@ export function useQuiz(availableChoices: Choice[]) {
       { name: currentQuote.author, party: currentQuote.party },
     ];
 
+    // If there are not enough choices, fill with random choices
+    while (choices.length < 4) {
+      const randomChoice =
+        availableChoices[Math.floor(Math.random() * availableChoices.length)];
+      if (!choices.some((choice) => choice.name === randomChoice.name)) {
+        choices.push(randomChoice);
+      }
+    }
+
     // Remove duplicates
     const uniqueChoices = Array.from(new Set(choices.map((c) => c.name))).map(
       (name) => choices.find((c) => c.name === name)!
