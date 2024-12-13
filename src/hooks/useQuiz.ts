@@ -1,17 +1,27 @@
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo, useEffect } from "react";
 import { Quote, Choice, QuizState, QuizResult } from "../types/quiz";
 import { quotes } from "../data/quotes";
 
 const ANSWER_DELAY = 2000;
+const LOCAL_STORAGE_KEY = "quizState";
 
 export function useQuiz(availableChoices: Choice[]) {
-  const [state, setState] = useState<QuizState>({
-    currentIndex: 0,
-    score: 0,
-    answeredQuestions: [],
-    isAnswered: false,
-    selectedChoice: undefined,
+  const [state, setState] = useState<QuizState>(() => {
+    const savedState = localStorage.getItem(LOCAL_STORAGE_KEY);
+    return savedState
+      ? JSON.parse(savedState)
+      : {
+          currentIndex: 0,
+          score: 0,
+          answeredQuestions: [],
+          isAnswered: false,
+          selectedChoice: undefined,
+        };
   });
+
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(state));
+  }, [state]);
 
   // Randomize quotes order for each quiz session
   const randomizedQuotes = useMemo(
@@ -100,6 +110,7 @@ export function useQuiz(availableChoices: Choice[]) {
       isAnswered: false,
       selectedChoice: undefined,
     });
+    localStorage.removeItem(LOCAL_STORAGE_KEY);
   }, []);
 
   const skipToGameOver = useCallback(() => {
