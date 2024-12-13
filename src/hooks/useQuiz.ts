@@ -2,7 +2,7 @@ import { useState, useCallback, useMemo, useEffect } from "react";
 import { Quote, Choice, QuizState, QuizResult } from "../types/quiz";
 import { quotes } from "../data/quotes";
 
-const ANSWER_DELAY = 2000;
+const ANSWER_DELAY = 500;
 const LOCAL_STORAGE_KEY = "quizState";
 
 const correctSound = new Audio("/correct.mp3");
