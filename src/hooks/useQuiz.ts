@@ -5,6 +5,9 @@ import { quotes } from "../data/quotes";
 const ANSWER_DELAY = 2000;
 const LOCAL_STORAGE_KEY = "quizState";
 
+const correctSound = new Audio("/correct.mp3");
+const incorrectSound = new Audio("/incorrect.mp3");
+
 export function useQuiz(availableChoices: Choice[]) {
   const [state, setState] = useState<QuizState>(() => {
     const savedState = localStorage.getItem(LOCAL_STORAGE_KEY);
@@ -64,6 +67,13 @@ export function useQuiz(availableChoices: Choice[]) {
         score: prev.score + points,
         answeredQuestions: [...prev.answeredQuestions, currentQuote.id],
       }));
+
+      // Play sound effect
+      if (isCorrect) {
+        correctSound.play();
+      } else {
+        incorrectSound.play();
+      }
 
       setTimeout(() => {
         if (state.currentIndex < randomizedQuotes.length - 1) {
