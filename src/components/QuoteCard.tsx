@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Quote, Choice } from "../types/quiz";
 import { Quote as QuoteIcon, Calendar, BookOpen } from "lucide-react";
 
@@ -21,8 +21,21 @@ export default function QuoteCard({
   isCorrect,
   hardMode,
 }: QuoteCardProps) {
+  const [animationClass, setAnimationClass] = useState("");
+
+  useEffect(() => {
+    if (disabled) {
+      setAnimationClass("swipe-out");
+      setTimeout(() => {
+        setAnimationClass("swipe-in");
+      }, 500); // Match the duration of the swipe-out animation
+    }
+  }, [disabled]);
+
   return (
-    <div className="w-full max-w-2xl bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
+    <div
+      className={`w-full max-w-2xl bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 ${animationClass}`}
+    >
       <div className="flex items-center justify-center mb-6">
         <QuoteIcon className="w-8 h-8 text-blue-500" />
       </div>

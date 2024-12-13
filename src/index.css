@@ -28,3 +28,33 @@
   -webkit-font-smoothing: none;
   -moz-osx-font-smoothing: none;
 }
+
+@keyframes swipe-out {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes swipe-in {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.swipe-out {
+  animation: swipe-out 0.5s forwards;
+}
+
+.swipe-in {
+  animation: swipe-in 0.5s forwards;
+}
