@@ -8,7 +8,7 @@ const LOCAL_STORAGE_KEY = "quizState";
 const correctSound = new Audio("/correct.mp3");
 const incorrectSound = new Audio("/incorrect.mp3");
 
-export function useQuiz(availableChoices: Choice[]) {
+export function useQuiz(availableChoices: Choice[], hardMode: boolean) {
   const [state, setState] = useState<QuizState>(() => {
     const savedState = localStorage.getItem(LOCAL_STORAGE_KEY);
     return savedState
@@ -68,7 +68,7 @@ export function useQuiz(availableChoices: Choice[]) {
   const handleAnswer = useCallback(
     (choice: Choice) => {
       const isCorrect = choice.name === currentQuote.author;
-      const points = isCorrect ? calculatePoints(state.currentIndex) : 0;
+      const points = isCorrect ? calculatePoints(state.currentIndex, hardMode) : 0;
       setState((prev) => ({
         ...prev,
         selectedChoice: choice,
@@ -95,13 +95,14 @@ export function useQuiz(availableChoices: Choice[]) {
         }
       }, ANSWER_DELAY);
     },
-    [currentQuote, state.currentIndex, randomizedQuotes.length]
+    [currentQuote, state.currentIndex, randomizedQuotes.length, hardMode]
   );
 
-  const calculatePoints = (questionIndex: number): number => {
+  const calculatePoints = (questionIndex: number, hardMode: boolean): number => {
     const basePoints = 100;
     const streakBonus = Math.floor(questionIndex / 3) * 50;
-    return basePoints + streakBonus;
+    const totalPoints = basePoints + streakBonus;
+    return hardMode ? totalPoints * 2 : totalPoints;
   };
 
   const getResults = useCallback(
