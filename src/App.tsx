@@ -7,7 +7,7 @@ import ScoreBoard from "./components/ScoreBoard";
 import GameOver from "./components/GameOver";
 import AGB from "./pages/agb";
 import Datenschutzerklaerung from "./pages/datenschutzerklaerung";
-import { Sparkles, Sun, Moon } from "lucide-react";
+import { Sparkles, Sun, Moon, AlertTriangle } from "lucide-react";
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -38,7 +38,7 @@ export default function App() {
     getResults,
     resetQuiz,
     skipToGameOver,
-  } = useQuiz(choices);
+  } = useQuiz(choices, hardMode);
   const results = isGameOver ? getResults() : null;
 
   return (
@@ -63,6 +63,12 @@ export default function App() {
               )}
             </button>
           </div>
+          {hardMode && (
+            <div className="flex items-center justify-center mb-4 text-red-600 dark:text-red-400">
+              <AlertTriangle className="w-5 h-5 mr-2" />
+              <span>Hard Mode Active</span>
+            </div>
+          )}
           <Routes>
             <Route
               path="/"
