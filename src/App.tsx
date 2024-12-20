@@ -66,7 +66,7 @@ export default function App() {
           {hardMode && (
             <div className="flex items-center justify-center mb-4 text-red-600 dark:text-red-400">
               <AlertTriangle className="w-5 h-5 mr-2" />
-              <span>Hard Mode Active</span>
+              <span>Hard Mode aktiviert</span>
             </div>
           )}
           <Routes>
