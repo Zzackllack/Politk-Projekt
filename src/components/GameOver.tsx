@@ -23,19 +23,17 @@ export default function GameOver({ results, onPlayAgain }: GameOverProps) {
   const [loadedEntries, setLoadedEntries] = useState<number>(0);
 
   useEffect(() => {
-    if (isSubmitted) {
-      const interval = setInterval(() => {
-        setLoadedEntries((prev) => {
-          if (prev < leaderboard.length) {
-            return prev + 1;
-          } else {
-            clearInterval(interval);
-            return prev;
-          }
-        });
-      }, 100); // Adjust the delay for the animation
-    }
-  }, [isSubmitted, leaderboard.length]);
+    const interval = setInterval(() => {
+      setLoadedEntries((prev) => {
+        if (prev < leaderboard.length) {
+          return prev + 1;
+        } else {
+          clearInterval(interval);
+          return prev;
+        }
+      });
+    }, 100); // Adjust the delay for the animation
+  }, [leaderboard.length]);
 
   const handleSubmitScore = (e: React.FormEvent) => {
     e.preventDefault();
