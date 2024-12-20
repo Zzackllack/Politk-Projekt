@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Trophy,
   Twitter,
@@ -20,6 +20,22 @@ export default function GameOver({ results, onPlayAgain }: GameOverProps) {
   const [playerName, setPlayerName] = useState("");
   const { leaderboard, addEntry } = useLeaderboard();
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [loadedEntries, setLoadedEntries] = useState<number>(0);
+
+  useEffect(() => {
+    if (isSubmitted) {
+      const interval = setInterval(() => {
+        setLoadedEntries((prev) => {
+          if (prev < leaderboard.length) {
+            return prev + 1;
+          } else {
+            clearInterval(interval);
+            return prev;
+          }
+        });
+      }, 100); // Adjust the delay for the animation
+    }
+  }, [isSubmitted, leaderboard.length]);
 
   const handleSubmitScore = (e: React.FormEvent) => {
     e.preventDefault();
@@ -150,10 +166,11 @@ export default function GameOver({ results, onPlayAgain }: GameOverProps) {
         <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
           {leaderboard.length > 0 ? (
             <div className="space-y-2">
-              {leaderboard.map((entry, index) => (
+              {leaderboard.slice(0, loadedEntries).map((entry, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-between p-2 bg-white dark:bg-gray-800 rounded-lg shadow-sm"
+                  className={`flex items-center justify-between p-2 bg-white dark:bg-gray-800 rounded-lg shadow-sm fade-in-up`}
+                  style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="flex items-center gap-3">
                     <span className="font-minecraft text-lg text-gray-500 dark:text-gray-400">
