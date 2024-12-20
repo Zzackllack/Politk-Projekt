@@ -77,7 +77,7 @@ export default function GameOver({ results, onPlayAgain }: GameOverProps) {
       case 3:
         return "🥉"; // Bronze medal for 3rd place
       default:
-        return "";
+        return `#${place}`;
     }
   };
 
@@ -170,7 +170,7 @@ export default function GameOver({ results, onPlayAgain }: GameOverProps) {
                 >
                   <div className="flex items-center gap-3">
                     <span className="font-minecraft text-lg text-gray-500 dark:text-gray-400">
-                      #{index + 1} {getIconForPlace(index + 1)}
+                      {getIconForPlace(index + 1)}
                     </span>
                     <span className="font-semibold text-gray-900 dark:text-gray-100">
                       {entry.name}
