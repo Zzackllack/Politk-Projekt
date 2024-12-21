@@ -10,7 +10,7 @@ import Datenschutzerklaerung from "./pages/datenschutzerklaerung";
 import { Sparkles, Sun, Moon, AlertTriangle } from "lucide-react";
 
 export default function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   const [hardMode, setHardMode] = useState(false);
 
   useEffect(() => {
