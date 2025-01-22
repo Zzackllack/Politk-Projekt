@@ -3,7 +3,7 @@ import axios from "axios";
 import { LeaderboardEntry } from "../types/quiz";
 
 const API_URL =
-  "https://politk-projekt-backend-new.up.railway.app//api/leaderboard";
+  "https://politk-projekt-backend-new.up.railway.app/api/leaderboard";
 
 export function useLeaderboard() {
   const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);
