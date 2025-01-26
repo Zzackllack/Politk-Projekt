@@ -7,6 +7,7 @@ import ScoreBoard from "./components/ScoreBoard";
 import GameOver from "./components/GameOver";
 import AGB from "./pages/agb";
 import Datenschutzerklaerung from "./pages/datenschutzerklaerung";
+import NotFound from "./pages/NotFound";
 import { Sparkles, Sun, Moon, AlertTriangle } from "lucide-react";
 
 export default function App() {
@@ -121,6 +122,7 @@ export default function App() {
               path="/datenschutzerklaerung"
               element={<Datenschutzerklaerung />}
             />
+            <Route path="*" element={<NotFound />} /> {/* Catch-all route for 404 */}
           </Routes>
         </div>
         <footer className="text-center text-gray-500 dark:text-gray-400 mt-8">
