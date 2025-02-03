@@ -1,12 +1,12 @@
 {
-  "name": "vite-react-typescript-starter",
+  "name": "Politk-quote-quiz",
   "private": true,
-  "version": "0.0.0",
+  "version": "6.9.9",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "start": "vite"
+    "start": "vite",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -20,8 +20,7 @@
     "mysql2": "^3.11.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.28.0",
-    "vite-react-typescript-starter": "file:"
+    "react-router-dom": "^6.28.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",
