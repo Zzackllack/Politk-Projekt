@@ -1,6 +1,6 @@
 # Political Quotes Quiz (WIP)
 
-Test your knowledge of famous political quotes with this interactive quiz.
+Enhance your knowledge of renowned political quotes with this engaging and interactive quiz.
 
 ## Table of Contents
 
@@ -12,6 +12,8 @@ Test your knowledge of famous political quotes with this interactive quiz.
 
 ## Installation
 
+To set up the project, follow these steps:
+
 1. Clone the repository:
 
    ```sh
@@ -19,26 +21,27 @@ Test your knowledge of famous political quotes with this interactive quiz.
    cd political-quotes-quiz
    ```
 
-2. Install dependencies:
+2. Install the necessary dependencies:
+
    ```sh
    npm install
    ```
 
 ## Usage
 
-To start the development server, run:
+To initiate the development server, execute:
 
 ```sh
 npm run dev
 ```
 
-To build the project for production, run:
+To compile the project for production, execute:
 
 ```sh
 npm run build
 ```
 
-To preview the production build, run:
+To preview the production build, execute:
 
 ```sh
 npm run preview
@@ -46,23 +49,23 @@ npm run preview
 
 ## Features
 
-- Interactive quiz with famous political quotes
-- Score tracking and leaderboard
-- Share your score on social media
-- Responsive design
-- Dark mode support
+- Interactive quiz featuring famous political quotes
+- Score tracking and leaderboard functionality
+- Social media score sharing capability
+- Responsive design for various devices
+- Support for dark mode
 
 ## Contributing
 
-Contributions are welcome! Please follow these steps:
+We welcome contributions! Please adhere to the following steps:
 
 1. Fork the repository.
 2. Create a new branch (`git checkout -b feature-branch`).
-3. Make your changes.
+3. Implement your changes.
 4. Commit your changes (`git commit -m 'Add new feature'`).
 5. Push to the branch (`git push origin feature-branch`).
-6. Open a pull request.
+6. Submit a pull request.
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License. For more details, refer to the LICENSE file.
