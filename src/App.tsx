@@ -8,8 +8,8 @@ import GameOver from "./components/GameOver";
 import AGB from "./pages/agb";
 import Datenschutzerklaerung from "./pages/datenschutzerklaerung";
 import NotFound from "./pages/NotFound";
-import { Sparkles, Sun, Moon, AlertTriangle } from "lucide-react";
 import AchtzigJaehrigesKriegsende from "./pages/AchtzigJaehrigesKriegsende";
+import { Sparkles, Sun, Moon, AlertTriangle } from "lucide-react";
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -75,7 +75,18 @@ export default function App() {
             <Route
               path="/"
               element={
-                <>
+                <>                  {/* Neuigkeit zum 80. Jahrestag des Kriegsendes */}
+                  <div className="mb-8 p-6 bg-gradient-to-r from-blue-50 to-blue-100 dark:from-gray-700 dark:to-gray-800 rounded-xl shadow-md flex items-center space-x-4">
+                    <Sparkles className="w-6 h-6 text-yellow-500" />
+                    <div>
+                      <h2 className="font-bold text-lg text-gray-800 dark:text-gray-200">
+                        80. Jahrestag des Kriegsendes am 8. Mai 2025
+                      </h2>
+                      <Link to="/80-jahriges-kriegsende" className="text-blue-600 dark:text-blue-400 hover:underline">
+                        Erfahre mehr →
+                      </Link>
+                    </div>
+                  </div>
                   <div className="text-center mb-12">
                     <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 flex items-center justify-center gap-3 mb-4">
                       <Sparkles className="w-8 h-8 text-blue-500" />
@@ -118,12 +129,12 @@ export default function App() {
                 </>
               }
             />
+            <Route path="/80-jahriges-kriegsende" element={<AchtzigJaehrigesKriegsende />} />
             <Route path="/agb" element={<AGB />} />
             <Route
               path="/datenschutzerklaerung"
               element={<Datenschutzerklaerung />}
             />
-            <Route path="/80-jahriges-kriegsende" element={<AchtzigJaehrigesKriegsende />} />
             <Route path="*" element={<NotFound />} /> {/* Catch-all route for 404 */}
           </Routes>
         </div>
