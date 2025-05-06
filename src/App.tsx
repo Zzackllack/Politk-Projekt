@@ -9,6 +9,7 @@ import AGB from "./pages/agb";
 import Datenschutzerklaerung from "./pages/datenschutzerklaerung";
 import NotFound from "./pages/NotFound";
 import { Sparkles, Sun, Moon, AlertTriangle } from "lucide-react";
+import AchtzigJaehrigesKriegsende from "./pages/AchtzigJaehrigesKriegsende";
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -122,6 +123,7 @@ export default function App() {
               path="/datenschutzerklaerung"
               element={<Datenschutzerklaerung />}
             />
+            <Route path="/80-jahriges-kriegsende" element={<AchtzigJaehrigesKriegsende />} />
             <Route path="*" element={<NotFound />} /> {/* Catch-all route for 404 */}
           </Routes>
         </div>
