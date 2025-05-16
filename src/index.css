@@ -4,8 +4,8 @@
 
 @font-face {
   font-family: "Minecraft";
-  src: url("https://cdn.jsdelivr.net/gh/South-Paw/typeface-minecraft@master/font/minecraft.woff2")
-    format("woff2");
+  /* Update font source to a more reliable CDN */
+  src: url("https://fonts.cdnfonts.com/s/18679/Minecraft.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
