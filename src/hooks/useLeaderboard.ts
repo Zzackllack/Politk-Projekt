@@ -15,7 +15,6 @@ export function useLeaderboard() {
     // Ensure API_URL ends with the correct path
     const url = API_URL.endsWith('/api/leaderboard') ? API_URL : `${API_URL}/api/leaderboard`;
     
-    console.log("Fetching leaderboard from:", url);
     axios
       .get(url)
       .then((response) => {
