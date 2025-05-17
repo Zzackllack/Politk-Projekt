@@ -5,9 +5,6 @@ import { LeaderboardEntry } from "../types/quiz";
 // Get API URL from environment variable and log it for debugging
 const API_URL = import.meta.env.VITE_LEADERBOARD_API_URL || "http://localhost:3000";
 
-// Log the API URL to help with debugging
-console.log("Using API URL:", API_URL);
-
 export function useLeaderboard() {
   const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);
 
